@@ -1,28 +1,48 @@
-# AngularTourOfHeroes
+# Angular Tour of Heroes
+
+![default](https://user-images.githubusercontent.com/14962493/31059611-bc7fd564-a70d-11e7-9692-38b5e3f7d396.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
 
-## Development server
+## Running the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Or if you'r using a npm just type `npm start` and use the application (you should be in the project directory to start it 
-through the command line).
+If you wanna to start the project make sure you have installed Node.js and npm. For details check internet or the link -> [how to install npm](https://www.npmjs.com/package/npm).
 
-## Code scaffolding
+In the case you already own npm just open terminal or command line and move to the downloaded project directory and type `npm start`. After that you can navigate to `http://localhost:4200/` and check the aplication. Also uploaded version you can check out right [here](https://angularheroes.000webhostapp.com/dashboard).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Short overview
 
-## Build
+This project demonstate the basic's of the TypeScript language and knowlage of Angular 4. 
+We will see how to configure application routing:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```typescript
+const routes: Routes = [
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'detail/:id', component: HeroDetailComponent},
+  {path: 'heroes', component: HeroesComponent}
+];
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+```
+We will see how working Promises in TypeScript:
+```typescript
+getHero(id: number): Promise<Hero> {
+    return this.getHeroes()
+      .then(heroes => heroes.find(hero => hero.id === id));
+  }
+```
+Or how to create own functions and bind them to the HTML code:
+```typescript
+  gotoDetail(hero: Hero): void {
+    this.selectedHero = hero;
+    this.router.navigate(['/detail', this.selectedHero.id]);
+  }
+```
+```html
+<md-card [class.selected]="hero === selectedHero"
+             (click)="gotoDetail(hero)">
+ ```
