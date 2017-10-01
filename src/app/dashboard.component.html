@@ -1,0 +1,23 @@
+<h1>Most popular heroes</h1>
+<div class="card-content" *ngFor="let hero of heroes">
+  <md-card>
+    <md-card-header>
+      <div md-card-avatar class="hero-avatar" [style.background-image]="'url('+hero.heroPortrait+')'"></div>
+      <md-card-title>{{hero.name}}</md-card-title>
+      <md-card-subtitle>{{hero.realName}}</md-card-subtitle>
+      <div class="flex-spacer"></div>
+      <div class="hero-actions"></div>
+      <button md-icon-button color="warn">
+        <md-icon class="md-24" aria-label="Example icon-button with a heart icon">favorite</md-icon>
+      </button>
+    </md-card-header>
+    <img md-card-image src="{{hero.heroImage}}">
+    <md-card-content>
+      <p>{{hero.shortBio}}</p>
+    </md-card-content>
+    <md-card-actions align="end">
+      <div class="flex-spacer"></div>
+      <button md-button [routerLink]="['/detail', hero.id]" >Read more</button>
+    </md-card-actions>
+  </md-card>
+</div>

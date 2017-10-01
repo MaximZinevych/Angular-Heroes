@@ -1,0 +1,14 @@
+<h1>List of all heroes</h1>
+<md-list class="list-wrapper">
+  <md-list-item *ngFor="let hero of heroes"
+                 class="list-element-wrapper">
+    <md-card [class.selected]="hero === selectedHero"
+             (click)="gotoDetail(hero)">
+      <md-card-header>
+        <div md-card-avatar class="hero-avatar" [style.background-image]="'url('+hero.heroPortrait+')'"></div>
+        <md-card-title>{{hero.name}}</md-card-title>
+        <md-card-subtitle>{{hero.realName}}</md-card-subtitle>
+      </md-card-header>
+    </md-card>
+  </md-list-item>
+</md-list>

@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #E3F2FD;
+  color: #424242;
+}
+
+p{
+  color: #424242;
+  line-height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+

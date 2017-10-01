@@ -1,0 +1,18 @@
+md-toolbar{
+  background-color: #00897B !important;
+  border-bottom: 2px solid #4DB6AC;
+  box-shadow: 0 3px 5px rgba(0,0,0,.26);
+}
+
+button{
+  color: #00897B !important;
+  margin-right: 0.5em;
+}
+
+header{
+  //position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  margin-bottom: 3em;
+}

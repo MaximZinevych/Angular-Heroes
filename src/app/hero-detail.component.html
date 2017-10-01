@@ -1,0 +1,14 @@
+<md-card *ngIf="hero">
+  <h1>{{hero.name}}</h1>
+  <img md-card-image src="{{hero.heroImage}}">
+  <md-card-content>
+    <p>
+      {{hero.shortBio}}
+    </p><br>
+    <p>{{hero.bio}}</p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="goBack()">Back</button>
+  </md-card-actions>
+</md-card>
+
